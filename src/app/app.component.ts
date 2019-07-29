@@ -13,10 +13,10 @@ export class AppComponent {
   authors;
   constructor(private db: AngularFireDatabase) {
     this.courses = db.list('courses');
-    this.courses$ = db.list('/courses').snapshotChanges(); // to get key
+    this.courses$ = db.list('/courses').snapshotChanges();
     this.authors$ = db.list('/authors').valueChanges().subscribe(datas => {
       this.authors = datas;
-    }); // afficher les value
+    });
     console.log(this.authors$);
   }
 
