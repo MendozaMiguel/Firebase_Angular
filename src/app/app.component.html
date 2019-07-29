@@ -1,0 +1,20 @@
+<ul>
+  <li *ngFor="let course of courses$ | async">
+    <input
+      type="text"
+      (keyup.enter)="add(courseInput.value, course)"
+      #courseInput
+    />
+    OR tape enter to add new value from input
+    <button (click)="update(course, courseInput.value)">UPDATE</button>
+    <button (click)="delete(course)">REMOVE</button>
+    <p>ID : {{ course.key }}</p>
+    <p>VALUE : {{ course.payload.val() }}</p>
+  </li>
+</ul>
+
+<ul *ngFor="let author of authors">
+  <li>name : {{ author.name }}</li>
+  <li>nombre d'étudiants : {{ author.students }}</li>
+  <li>premium: {{ author.isPremium }}</li>
+</ul>
